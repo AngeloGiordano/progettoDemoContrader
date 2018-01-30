@@ -17,4 +17,44 @@ public class DispositivoDTO {
         this.hardDisk = hardDisk;
         this.stato = stato;
     }
+
+    public String getNomeDispositivo() {
+        return nomeDispositivo;
+    }
+
+    public void setNomeDispositivo(String nomeDispositivo) {
+        this.nomeDispositivo = nomeDispositivo;
+    }
+
+    public String getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public double getRam() {
+        return ram;
+    }
+
+    public void setRam(double ram) {
+        this.ram = ram;
+    }
+
+    public double getHardDisk() {
+        return hardDisk;
+    }
+
+    public void setHardDisk(double hardDisk) {
+        this.hardDisk = hardDisk;
+    }
+
+    public String getStato() {
+        return stato;
+    }
+
+    public void setStato(String stato) {
+        this.stato = stato;
+    }
 }

@@ -14,7 +14,6 @@ public class Dispositivo implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
     private long idDispositivo;
-
     @Column
     @Getter @Setter
     private String nomeDispositivo;
@@ -32,10 +31,8 @@ public class Dispositivo implements Serializable{
     private String stato;
 
 
-    public Dispositivo(){
+    public Dispositivo(){ }
 
-
-}
 
     public Dispositivo(String nomeDispositivo,String cpu,double ram,double hardDisk, String stato){
         this.nomeDispositivo=nomeDispositivo;

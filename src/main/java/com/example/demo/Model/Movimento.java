@@ -14,7 +14,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name="movimento")
-@NoArgsConstructor @AllArgsConstructor
 public class Movimento implements Serializable{
 
     @Id
