@@ -58,6 +58,62 @@ public class Movimento implements Serializable{
         this.valuta=valuta;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public String getCausale() {
+        return causale;
+    }
+
+    public void setCausale(String causale) {
+        this.causale = causale;
+    }
+
+    public double getImporto() {
+        return importo;
+    }
+
+    public void setImporto(double importo) {
+        this.importo = importo;
+    }
+
+    public String getMittente() {
+        return mittente;
+    }
+
+    public void setMittente(String mittente) {
+        this.mittente = mittente;
+    }
+
+    public String getBeneficiario() {
+        return beneficiario;
+    }
+
+    public void setBeneficiario(String beneficiario) {
+        this.beneficiario = beneficiario;
+    }
+
+    public String getValuta() {
+        return valuta;
+    }
+
+    public void setValuta(String valuta) {
+        this.valuta = valuta;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

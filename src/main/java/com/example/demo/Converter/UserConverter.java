@@ -4,6 +4,8 @@ import com.example.demo.Dto.UserDTO;
 import com.example.demo.Model.User;
 import org.springframework.stereotype.Component;
 
+
+
 @Component
 public class UserConverter implements Converter<User, UserDTO>{
 
@@ -11,32 +13,29 @@ public class UserConverter implements Converter<User, UserDTO>{
     @Override
     public User convertToEntity(UserDTO userDTO) {
 
-        User user = new UserEntity();
+        User user = new User();
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
-        user.setFirstname(userDTO.getFirstname());
-        user.setLastname(userDTO.getLastname());
-        user.setDateofbirth(userDTO.getDateofbirth());
-        user.setFiscalcode(userDTO.getFiscalcode());
-        user.setBusinessname(userDTO.getBusinessname());
-        user.setVat(userDTO.getVat());
-        user.setMunicipality(userDTO.getMunicipality());
-        user.setPost(userDTO.getPost());
-        user.setCity(userDTO.getCity());
-        user.setAddress(userDTO.getAddress());
-        user.setTelephone(userDTO.getTelephone());
-        usergit setRole("user");
-        return userEntity;
+        user.setNomeUser(userDTO.getNomeUser());
+        user.setCognomeUser(userDTO.getCognomeUser());
+        user.setDataDiNascita(userDTO.getDataDiNascita());
+        user.setIndirizzo(userDTO.getIndirizzo());
+        user.setCittà(userDTO.getCittà());
+        user.setProvincia(userDTO.getProvincia());
+        user.setCap(userDTO.getCap());
+        user.setEmail(userDTO.getEmail());
+        user.setTelefono(userDTO.getTelefono());
+        user.setRuolo("user");
+        return user;
     }
 
 
     @Override
-    public UserDTO convertToDTO(UserEntity userEntity) {
-        return new UserDTO(userEntity.getUsername(), userEntity.getPassword(),userEntity.getFirstname(),
-                userEntity.getLastname(),userEntity.getDateofbirth(), userEntity.getFiscalcode(),
-                userEntity.getBusinessname(), userEntity.getVat(), userEntity.getMunicipality(),
-                userEntity.getPost(), userEntity.getCity(), userEntity.getAddress(),userEntity.getTelephone(),
-                userEntity.getRole());
+    public UserDTO convertToDTO(User user) {
+        return new UserDTO(user.getUsername(), user.getPassword(),user.getNomeUser(),
+                user.getCognomeUser(),user.getDataDiNascita(), user.getIndirizzo(),
+                user.getCittà(), user.getProvincia(), user.getCap(),
+                user.getEmail(), user.getTelefono(), user.getRuolo());
     }
 }
 

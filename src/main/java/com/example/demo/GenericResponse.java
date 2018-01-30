@@ -1,3 +1,5 @@
+package com.example.demo;
+
 public class GenericResponse<T> {
 
     private int response;

@@ -45,7 +45,53 @@ public class Dispositivo implements Serializable{
         this.stato=stato;
     }
 
+    public long getIdDispositivo() {
+        return idDispositivo;
+    }
 
+    public void setIdDispositivo(long idDispositivo) {
+        this.idDispositivo = idDispositivo;
+    }
+
+    public String getNomeDispositivo() {
+        return nomeDispositivo;
+    }
+
+    public void setNomeDispositivo(String nomeDispositivo) {
+        this.nomeDispositivo = nomeDispositivo;
+    }
+
+    public String getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public double getRam() {
+        return ram;
+    }
+
+    public void setRam(double ram) {
+        this.ram = ram;
+    }
+
+    public double getHardDisk() {
+        return hardDisk;
+    }
+
+    public void setHardDisk(double hardDisk) {
+        this.hardDisk = hardDisk;
+    }
+
+    public String getStato() {
+        return stato;
+    }
+
+    public void setStato(String stato) {
+        this.stato = stato;
+    }
 
     @Override
     public boolean equals(Object o) {
