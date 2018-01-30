@@ -15,6 +15,7 @@ import java.util.Objects;
 public class User implements Serializable {
 
     @Id
+    @Getter @Setter
     private String username;
     @Column
     @Getter @Setter

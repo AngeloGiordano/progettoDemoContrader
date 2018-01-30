@@ -47,6 +47,8 @@ public class Movimento implements Serializable{
     @Getter @Setter
     private String valuta;
 
+    public Movimento(){}
+
     public Movimento(Date data,String causale,double importo,String mittente,String beneficiario,String valuta){
         this.data=data;
         this.causale=causale;

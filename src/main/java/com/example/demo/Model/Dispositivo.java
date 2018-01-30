@@ -12,6 +12,7 @@ import java.util.Objects;
 public class Dispositivo implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter @Setter
     private long idDispositivo;
 
     @Column
