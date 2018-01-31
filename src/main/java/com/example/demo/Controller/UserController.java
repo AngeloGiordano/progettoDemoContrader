@@ -61,9 +61,9 @@ public class UserController {
             User userAgg=userService.insert(userTrovato);
             UserDTO userAggDTO=userConverter.convertToDTO(userAgg);
 
-            return new GenericResponse<>(0, userAggDTO);
+            return new GenericResponse<>(0, userAggDTO); //aggiorna Utente
         }
-        else return new GenericResponse<>(1, null);
+        else return new GenericResponse<>(1, null); // non aggiorna Utente
     }
 
 

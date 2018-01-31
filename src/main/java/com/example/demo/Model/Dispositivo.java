@@ -12,34 +12,37 @@ import java.util.Objects;
 public class Dispositivo implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter @Setter
+
     private long idDispositivo;
     @Column
-    @Getter @Setter
+
     private String nomeDispositivo;
     @Column
-    @Getter @Setter
+
     private String cpu;
     @Column
-    @Getter @Setter
+
     private double ram;
     @Column
-    @Getter @Setter
+
     private double hardDisk;
     @Column
-    @Getter @Setter
+
     private String stato;
+    @Column
+    private String username;
 
 
     public Dispositivo(){ }
 
 
-    public Dispositivo(String nomeDispositivo,String cpu,double ram,double hardDisk, String stato){
+    public Dispositivo(String nomeDispositivo,String cpu,double ram,double hardDisk, String stato,String username){
         this.nomeDispositivo=nomeDispositivo;
         this.cpu=cpu;
         this.ram=ram;
         this.hardDisk=hardDisk;
         this.stato=stato;
+        this.username=username;
     }
 
     public long getIdDispositivo() {
@@ -90,6 +93,14 @@ public class Dispositivo implements Serializable{
         this.stato = stato;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,13 +111,14 @@ public class Dispositivo implements Serializable{
                 Double.compare(that.hardDisk, hardDisk) == 0 &&
                 Objects.equals(nomeDispositivo, that.nomeDispositivo) &&
                 Objects.equals(cpu, that.cpu) &&
-                Objects.equals(stato, that.stato);
+                Objects.equals(stato, that.stato) &&
+                Objects.equals(username, that.username);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(nomeDispositivo, cpu, ram, hardDisk, stato);
+        return Objects.hash(idDispositivo, nomeDispositivo, cpu, ram, hardDisk, stato, username);
     }
 
     @Override
@@ -117,6 +129,7 @@ public class Dispositivo implements Serializable{
                 ", RAM='" + ram + '\'' +
                 ", HardDisk='" + hardDisk + '\'' +
                 ", Stato='" + stato + '\'' +
+                ", Username='"+ username+'\''+
                 '}';
     }
 

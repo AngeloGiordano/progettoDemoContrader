@@ -9,13 +9,17 @@ public class DispositivoDTO {
     private double ram;
     private double hardDisk;
     private String stato;
+    private String username;
 
-    public DispositivoDTO(String nomeDispositivo, String cpu, double ram, double hardDisk, String stato) {
+    public DispositivoDTO(){}
+
+    public DispositivoDTO(String nomeDispositivo, String cpu, double ram, double hardDisk, String stato,String username) {
         this.nomeDispositivo = nomeDispositivo;
         this.cpu = cpu;
         this.ram = ram;
         this.hardDisk = hardDisk;
         this.stato = stato;
+        this.username=username;
     }
 
     public String getNomeDispositivo() {
@@ -41,6 +45,10 @@ public class DispositivoDTO {
     public void setRam(double ram) {
         this.ram = ram;
     }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) { this.username = username; }
 
     public double getHardDisk() {
         return hardDisk;

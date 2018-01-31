@@ -19,31 +19,31 @@ public class Movimento implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    @Getter @Setter
+
     private long id;
 
     @Column
-    @Getter @Setter
+
     private Date data;
 
     @Column
-    @Getter @Setter
+
     private String causale;
 
     @Column
-    @Getter @Setter
+
     private double importo;
 
     @Column
-    @Getter @Setter
+
     private String mittente;
 
     @Column
-    @Getter @Setter
+
     private String beneficiario;
 
     @Column
-    @Getter @Setter
+
     private String valuta;
 
     public Movimento(){}
