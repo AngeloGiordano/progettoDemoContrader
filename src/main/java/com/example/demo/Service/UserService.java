@@ -5,6 +5,8 @@ import com.example.demo.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     private UserRepository userRepository;
@@ -17,4 +19,11 @@ public class UserService {
     public  User insert (User user) {
         return this.userRepository.save(user);
     }
+
+    public List<User> findByRuolo(String ruolo) {
+        return this.userRepository.findByRuolo(ruolo);
+    }
+
+    public User findUserByUsername (String username){return this.userRepository.findUserByUsername(username);}
+
 }

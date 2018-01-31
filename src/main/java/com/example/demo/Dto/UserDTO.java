@@ -9,7 +9,7 @@ public class UserDTO {
     private String cognomeUser;
     private String dataDiNascita;
     private String indirizzo ;
-    private String città;
+    private String citta;
     private String provincia ;
     private String cap ;
     private String email;
@@ -18,14 +18,14 @@ public class UserDTO {
 
     public UserDTO(){}
 
-    public UserDTO(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String città, String provincia, String cap,String email,String telefono, String ruolo) {
+    public UserDTO(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo) {
         this.username = username;
         this.password = password;
         this.nomeUser = nomeUser;
         this.cognomeUser = cognomeUser;
         this.dataDiNascita = dataDiNascita;
         this.indirizzo = indirizzo;
-        this.città= città;
+        this.citta= citta;
         this.provincia = provincia;
         this.cap = cap;
         this.email=email;
@@ -82,12 +82,12 @@ public class UserDTO {
         this.indirizzo = indirizzo;
     }
 
-    public String getCittà() {
-        return città;
+    public String getCitta() {
+        return citta;
     }
 
-    public void setCittà(String città) {
-        this.città = città;
+    public void setCitta(String citta) {
+        this.citta = citta;
     }
 
     public String getProvincia() {

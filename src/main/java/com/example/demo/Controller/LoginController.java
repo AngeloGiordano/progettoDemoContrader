@@ -42,7 +42,7 @@ public class LoginController {
         User user = loginService.login(u.getUsername(),u.getPassword());
 
         if (user == null)
-            return new GenericResponse<>(1, null);
+            return new GenericResponse<>(1, null);//login fallito
 
 
         UserDTO duser=userConverter.convertToDTO(user);
@@ -68,7 +68,7 @@ public class LoginController {
         {
             User userEntity = userService.insert(user);
 
-            UserDTO duser=userConverter.convertToDTO(user);
+            UserDTO duser=userConverter.convertToDTO(userEntity);
 
             return new GenericResponse<>(1,duser); //inserisce nuovo utente
         }

@@ -15,52 +15,40 @@ import java.util.Objects;
 public class User implements Serializable {
 
     @Id
-    @Getter @Setter
     private String username;
     @Column
-    @Getter @Setter
     private String password ;
     @Column
-    @Getter @Setter
     private String nomeUser ;
     @Column
-    @Getter @Setter
     private String cognomeUser;
     @Column
-    @Getter @Setter
     private String dataDiNascita;
     @Column
-    @Getter @Setter
     private String indirizzo ;
     @Column
-    @Getter @Setter
-    private String città;
+    private String citta;
     @Column
-    @Getter @Setter
     private String provincia ;
     @Column
-    @Getter @Setter
     private String cap ;
     @Column
-    @Getter @Setter
     private String email;
     @Column
-    @Getter @Setter
     private String telefono ;
     @Column
-    @Getter @Setter
     private  String ruolo ;
 
     public User(){}
 
-    public User(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String città, String provincia, String cap,String email,String telefono, String ruolo) {
+    public User(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo) {
         this.username = username;
         this.password = password;
         this.nomeUser = nomeUser;
         this.cognomeUser = cognomeUser;
         this.dataDiNascita = dataDiNascita;
         this.indirizzo = indirizzo;
-        this.città= città;
+        this.citta= citta;
         this.provincia = provincia;
         this.cap = cap;
         this.email=email;
@@ -117,12 +105,12 @@ public class User implements Serializable {
         this.indirizzo = indirizzo;
     }
 
-    public String getCittà() {
-        return città;
+    public String getCitta() {
+        return citta;
     }
 
-    public void setCittà(String città) {
-        this.città = città;
+    public void setCitta(String citta) {
+        this.citta = citta;
     }
 
     public String getProvincia() {
@@ -176,7 +164,7 @@ public class User implements Serializable {
                 Objects.equals(cognomeUser, user.cognomeUser) &&
                 Objects.equals(dataDiNascita, user.dataDiNascita) &&
                 Objects.equals(indirizzo, user.indirizzo) &&
-                Objects.equals(città, user.città) &&
+                Objects.equals(citta, user.citta) &&
                 Objects.equals(provincia, user.provincia) &&
                 Objects.equals(cap, user.cap) &&
                 Objects.equals(email, user.email) &&
@@ -187,12 +175,12 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
 
-        return Objects.hash(username, password, nomeUser, cognomeUser, dataDiNascita, indirizzo, città, provincia, cap, email, telefono, ruolo);
+        return Objects.hash(username, password, nomeUser, cognomeUser, dataDiNascita, indirizzo, citta, provincia, cap, email, telefono, ruolo);
     }
 
     @Override
     public String toString() {
-        return "User: " + "\n username: " + username + "\n password: " + password + "\n Nome: " + nomeUser + "\n Cognome: " + cognomeUser + "\n Data di nascita: " + dataDiNascita + "\n Indirizzo: " + indirizzo + "\n Città: " + città + "\n Provincia: " + provincia + "\n CAP: " + cap + "\n Email: " + email + "\n Telefono: " + telefono + "\n  Ruolo: " + ruolo;
+        return "User: " + "\n username: " + username + "\n password: " + password + "\n Nome: " + nomeUser + "\n Cognome: " + cognomeUser + "\n Data di nascita: " + dataDiNascita + "\n Indirizzo: " + indirizzo + "\n Citta: " + citta + "\n Provincia: " + provincia + "\n CAP: " + cap + "\n Email: " + email + "\n Telefono: " + telefono + "\n  Ruolo: " + ruolo;
     }
 
 

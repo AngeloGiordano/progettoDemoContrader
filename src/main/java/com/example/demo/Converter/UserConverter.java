@@ -20,7 +20,7 @@ public class UserConverter implements Converter<User, UserDTO>{
         user.setCognomeUser(userDTO.getCognomeUser());
         user.setDataDiNascita(userDTO.getDataDiNascita());
         user.setIndirizzo(userDTO.getIndirizzo());
-        user.setCittà(userDTO.getCittà());
+        user.setCitta(userDTO.getCitta());
         user.setProvincia(userDTO.getProvincia());
         user.setCap(userDTO.getCap());
         user.setEmail(userDTO.getEmail());
@@ -34,7 +34,7 @@ public class UserConverter implements Converter<User, UserDTO>{
     public UserDTO convertToDTO(User user) {
         return new UserDTO(user.getUsername(), user.getPassword(),user.getNomeUser(),
                 user.getCognomeUser(),user.getDataDiNascita(), user.getIndirizzo(),
-                user.getCittà(), user.getProvincia(), user.getCap(),
+                user.getCitta(), user.getProvincia(), user.getCap(),
                 user.getEmail(), user.getTelefono(), user.getRuolo());
     }
 }
