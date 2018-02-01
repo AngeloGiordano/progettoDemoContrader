@@ -1,13 +1,11 @@
 package com.example.demo.Model;
 
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -39,11 +37,16 @@ public class User implements Serializable {
     @Column
     private  String ruolo ;
     @Column
-    private String stato;
+    private  String stato ;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @Temporal(TemporalType.DATE)
+    @Column
+    private Date dataIscrizione ;
 
     public User(){}
 
-    public User(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo,String stato) {
+    public User(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap, String email, String telefono, String ruolo, String stato, Date dataIscrizione) {
         this.username = username;
         this.password = password;
         this.nomeUser = nomeUser;
@@ -56,7 +59,8 @@ public class User implements Serializable {
         this.email=email;
         this.telefono=telefono;
         this.ruolo =ruolo;
-        this.stato=stato;
+        this.stato =stato;
+        this.dataIscrizione =dataIscrizione;
 
     }
 
@@ -74,14 +78,6 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getStato() {
-        return stato;
-    }
-
-    public void setStato(String stato) {
-        this.stato = stato;
     }
 
     public String getNomeUser() {
@@ -164,6 +160,14 @@ public class User implements Serializable {
         this.ruolo = ruolo;
     }
 
+    public String getStato() { return stato; }
+
+    public void setStato(String stato) { this.stato = stato; }
+
+    public Date getDataIscrizione() { return dataIscrizione; }
+
+    public void setDataIscrizione(Date dataIscrizione) { this.dataIscrizione = dataIscrizione; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -181,18 +185,19 @@ public class User implements Serializable {
                 Objects.equals(email, user.email) &&
                 Objects.equals(telefono, user.telefono) &&
                 Objects.equals(ruolo, user.ruolo) &&
-                Objects.equals(stato, user.stato);
+                Objects.equals(stato, user.stato) &&
+                Objects.equals(dataIscrizione, user.dataIscrizione);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(username, password, nomeUser, cognomeUser, dataDiNascita, indirizzo, citta, provincia, cap, email, telefono, ruolo, stato);
+        return Objects.hash(username, password, nomeUser, cognomeUser, dataDiNascita, indirizzo, citta, provincia, cap, email, telefono, ruolo, stato, dataIscrizione);
     }
 
     @Override
     public String toString() {
-        return "User: " + "\n username: " + username + "\n password: " + password + "\n Nome: " + nomeUser + "\n Cognome: " + cognomeUser + "\n Data di nascita: " + dataDiNascita + "\n Indirizzo: " + indirizzo + "\n Citta: " + citta + "\n Provincia: " + provincia + "\n CAP: " + cap + "\n Email: " + email + "\n Telefono: " + telefono + "\n  Ruolo: " + ruolo+ "\n Stato: "+stato;
+        return "User: " + "\n username: " + username + "\n password: " + password + "\n Nome: " + nomeUser + "\n Cognome: " + cognomeUser + "\n Data di nascita: " + dataDiNascita + "\n Indirizzo: " + indirizzo + "\n Citta: " + citta + "\n Provincia: " + provincia + "\n CAP: " + cap + "\n Email: " + email + "\n Telefono: " + telefono + "\n  Ruolo: " + ruolo+ "\n  Stato: " + stato + "\n DataIscrizione: " +dataIscrizione;
     }
 
 

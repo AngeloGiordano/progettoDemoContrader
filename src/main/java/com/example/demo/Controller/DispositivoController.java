@@ -48,7 +48,7 @@ public class DispositivoController {
             Dispositivo newDispositivo=dispositivoConverter.convertToEntity(dispositivoDTO);
             newDispositivo.setStato("Registrato");
             Dispositivo dispAgg=dispositivoService.insert(newDispositivo);
-           DispositivoDTO dispAggDTO=dispositivoConverter.convertToDTO(dispAgg);
+            DispositivoDTO dispAggDTO=dispositivoConverter.convertToDTO(dispAgg);
             return new GenericResponse<>(1,dispAggDTO); // dispositivo aggiunto
         }
 
@@ -81,6 +81,21 @@ public class DispositivoController {
         else {
             conferma=false;
             return new GenericResponse<>(1,conferma); //dispositivo non eliminato
+        }
+    }
+
+    @RequestMapping(value="/deactivateDisp",method= RequestMethod.GET)
+    public GenericResponse<Boolean> deactivateDisp(@RequestParam("nomeDispositivo") String nomeDispositivo, @RequestParam("username") String username){
+        Dispositivo found=dispositivoService.findByNomeDispositivoAndUsername(nomeDispositivo,username);
+        boolean confirm=true;
+        if (found!=null){
+            found.setStato("DISATTIVATO");
+            Dispositivo dispdeact=dispositivoService.insert(found);
+            return new GenericResponse<>(0,confirm); // dispositivo disattivato
+        }
+        else {
+            confirm=false;
+            return new GenericResponse<>(1,confirm); //dispositivo non disattivato (attivo)
         }
     }
 }

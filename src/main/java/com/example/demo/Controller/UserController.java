@@ -44,10 +44,10 @@ public class UserController {
     @RequestMapping(value="/updateUser", method =RequestMethod.POST)
     public GenericResponse<UserDTO> newUser(@RequestBody UserDTO userDTO){
 
-            User user=   userConverter.convertToEntity(userDTO);
+        User user=   userConverter.convertToEntity(userDTO);
         if (user != null)
         {
-            User userTrovato= userService.findUserByUsername(user.getUsername());
+            User userTrovato= userService.findByUsername(user.getUsername());
             userTrovato.setPassword(user.getPassword());
             userTrovato.setNomeUser(user.getNomeUser());
             userTrovato.setCognomeUser(user.getCognomeUser());
@@ -68,28 +68,29 @@ public class UserController {
 
     @RequestMapping(value="/bloccaUtente",method = RequestMethod.GET)
     public GenericResponse<UserDTO> blockUtente(@RequestParam("username") String username) {
-        User userTrovato = userService.findUserByUsername(username);
+        User userTrovato = userService.findByUsername(username);
 
-        if (userTrovato != null) {
-            if (userTrovato.getStato().equalsIgnoreCase("Sbloccato")) {
+        // if (userTrovato != null) {
+        if (userTrovato.getStato().equalsIgnoreCase("Sbloccato")) {
 
-                userTrovato.setStato("Bloccato");
-                User userAgg = userService.insert(userTrovato);
-                UserDTO userAggDTO=userConverter.convertToDTO(userAgg);
-                return new GenericResponse<>(0, userAggDTO);
-            }
-            else if(userTrovato.getStato().equalsIgnoreCase("Bloccato")){
+            userTrovato.setStato("Bloccato");
+            User userAgg = userService.insert(userTrovato);
+            UserDTO userAggDTO = userConverter.convertToDTO(userAgg);
+            return new GenericResponse<>(0, userAggDTO);
+        } else if (userTrovato.getStato().equalsIgnoreCase("Bloccato")) {
 
-                userTrovato.setStato("Sbloccato");
-                User userAgg = userService.insert(userTrovato);
-                UserDTO userAggDTO=userConverter.convertToDTO(userAgg);
-                return new GenericResponse<>(1, userAggDTO);
-            }
+            userTrovato.setStato("Sbloccato");
+            User userAgg = userService.insert(userTrovato);
+            UserDTO userAggDTO = userConverter.convertToDTO(userAgg);
+            return new GenericResponse<>(1, userAggDTO);
+        } else {
+            return null;
         }
-        else
-            return new GenericResponse<>(2, null);
-        return null;
     }
+
+
+
+
 
 
 

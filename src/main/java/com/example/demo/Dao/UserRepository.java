@@ -9,12 +9,11 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
-
 @Repository
 @Transactional
 public interface  UserRepository extends CrudRepository<User, Long> {
 
     List<User> findByRuolo(String ruolo);
 
-    User findUserByUsername(String username);
+    User findByUsername(String username);
 }

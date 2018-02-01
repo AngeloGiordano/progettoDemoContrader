@@ -13,9 +13,10 @@ public class DispositivoConverter implements Converter<Dispositivo, DispositivoD
         Dispositivo dispositivo = new Dispositivo();
         dispositivo.setNomeDispositivo(dispositivoDTO.getNomeDispositivo());
         dispositivo.setCpu(dispositivoDTO.getCpu());
+        dispositivo.setFrequenza(dispositivoDTO.getFrequenza());
         dispositivo.setRam(dispositivoDTO.getRam());
         dispositivo.setHardDisk(dispositivoDTO.getHardDisk());
-        dispositivo.setStato(dispositivoDTO.getStato());
+        dispositivo.setStato(dispositivoDTO.getStato()); // registrato-disattivato-attivo
         dispositivo.setUsername(dispositivoDTO.getUsername());
         return dispositivo;
     }
@@ -23,7 +24,7 @@ public class DispositivoConverter implements Converter<Dispositivo, DispositivoD
 
     @Override
     public DispositivoDTO convertToDTO(Dispositivo dispositivo) {
-        return new DispositivoDTO(dispositivo.getNomeDispositivo(), dispositivo.getCpu(),dispositivo.getRam(),
+        return new DispositivoDTO(dispositivo.getNomeDispositivo(), dispositivo.getCpu(), dispositivo.getFrequenza(),dispositivo.getRam(),
                 dispositivo.getHardDisk(),dispositivo.getStato(),dispositivo.getUsername());
     }
 }

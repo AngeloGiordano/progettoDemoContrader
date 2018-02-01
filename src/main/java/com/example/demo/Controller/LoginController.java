@@ -22,7 +22,7 @@ public class LoginController {
     private UserService userService;
 
     @Autowired
-    public LoginController(LoginService loginService,UserService userService,UserConverter userConverter)
+    public LoginController(LoginService loginService, UserService userService, UserConverter userConverter)
     {
         this.loginService = loginService;
         this.userConverter=userConverter;
@@ -42,7 +42,7 @@ public class LoginController {
         User user = loginService.login(u.getUsername(),u.getPassword());
 
         if (user == null)
-            return new GenericResponse<>(1, null);//login fallito
+            return new GenericResponse<>(1, null);
 
 
         UserDTO duser=userConverter.convertToDTO(user);

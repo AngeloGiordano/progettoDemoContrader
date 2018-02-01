@@ -4,10 +4,12 @@ import com.example.demo.Dto.UserDTO;
 import com.example.demo.Model.User;
 import org.springframework.stereotype.Component;
 
+import java.util.GregorianCalendar;
 
 
 @Component
 public class UserConverter implements Converter<User, UserDTO>{
+    GregorianCalendar c = new GregorianCalendar();
 
 
     @Override
@@ -26,7 +28,8 @@ public class UserConverter implements Converter<User, UserDTO>{
         user.setEmail(userDTO.getEmail());
         user.setTelefono(userDTO.getTelefono());
         user.setRuolo("user");
-        user.setStato("sbloccato");
+        user.setStato("Sbloccato");
+        user.setDataIscrizione(c.getTime());
         return user;
     }
 
@@ -36,7 +39,6 @@ public class UserConverter implements Converter<User, UserDTO>{
         return new UserDTO(user.getUsername(), user.getPassword(),user.getNomeUser(),
                 user.getCognomeUser(),user.getDataDiNascita(), user.getIndirizzo(),
                 user.getCitta(), user.getProvincia(), user.getCap(),
-                user.getEmail(), user.getTelefono(), user.getRuolo(),user.getStato());
+                user.getEmail(), user.getTelefono(), user.getRuolo(), user.getStato(), user.getDataIscrizione());
     }
 }
-

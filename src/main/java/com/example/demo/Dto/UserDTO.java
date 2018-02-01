@@ -1,5 +1,7 @@
 package com.example.demo.Dto;
 
+import java.util.Date;
+
 public class UserDTO {
 
 
@@ -14,12 +16,13 @@ public class UserDTO {
     private String cap ;
     private String email;
     private String telefono ;
-    private  String ruolo ;
-    private String stato;
+    private String ruolo ;
+    private String stato ;
+    private Date dataIscrizione;
 
     public UserDTO(){}
 
-    public UserDTO(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo,String stato) {
+    public UserDTO(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap, String email, String telefono, String ruolo, String stato, Date dataIscrizione) {
         this.username = username;
         this.password = password;
         this.nomeUser = nomeUser;
@@ -32,7 +35,8 @@ public class UserDTO {
         this.email=email;
         this.telefono=telefono;
         this.ruolo =ruolo;
-        this.stato=stato;
+        this.stato =stato;
+        this.dataIscrizione = dataIscrizione;
 
     }
 
@@ -42,14 +46,6 @@ public class UserDTO {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getStato() {
-        return stato;
-    }
-
-    public void setStato(String stato) {
-        this.stato = stato;
     }
 
     public String getPassword() {
@@ -136,7 +132,13 @@ public class UserDTO {
         return ruolo;
     }
 
-    public void setRuolo(String ruolo) {
-        this.ruolo = ruolo;
-    }
+    public void setRuolo(String ruolo) { this.ruolo = ruolo; }
+
+    public String getStato() { return stato; }
+
+    public void setStato(String stato) { this.stato = stato; }
+
+    public Date getDataIscrizione() { return dataIscrizione; }
+
+    public void setDataIscrizione(Date dataIscrizione) { this.dataIscrizione = dataIscrizione; }
 }

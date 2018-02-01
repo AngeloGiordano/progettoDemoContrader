@@ -1,9 +1,10 @@
 package com.example.demo.Dto;
-import java.util.Date;
 
 public class MovimentoDTO {
 
-    private Date data;
+    private long id;
+
+    private String  data;
 
     private String causale;
 
@@ -15,20 +16,35 @@ public class MovimentoDTO {
 
     private String valuta;
 
-    public MovimentoDTO(Date data, String causale, double importo, String mittente, String beneficiario, String valuta) {
+    private int idDispositivo;
+
+    private String username;
+
+    public MovimentoDTO(long id, String data, String causale, double importo, String mittente, String beneficiario, String valuta, int idDispositivo, String username) {
+        this.id = id;
         this.data = data;
         this.causale = causale;
         this.importo = importo;
         this.mittente = mittente;
         this.beneficiario = beneficiario;
         this.valuta = valuta;
+        this.idDispositivo=idDispositivo;
+        this.username=username;
     }
 
-    public Date getData() {
+    public MovimentoDTO(){}
+
+    public long getId() { return id; }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -71,4 +87,12 @@ public class MovimentoDTO {
     public void setValuta(String valuta) {
         this.valuta = valuta;
     }
+
+    public int getIdDispositivo() { return idDispositivo; }
+
+    public void setIdDispositivo(int idDispositivo) { this.idDispositivo = idDispositivo; }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) { this.username = username; }
 }

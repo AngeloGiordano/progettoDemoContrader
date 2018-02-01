@@ -24,6 +24,6 @@ public class UserService {
         return this.userRepository.findByRuolo(ruolo);
     }
 
-    public User findUserByUsername (String username){return this.userRepository.findUserByUsername(username);}
+    public User findByUsername (String username){return this.userRepository.findByUsername(username);}
 
 }

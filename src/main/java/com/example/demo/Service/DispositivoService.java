@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class DispositivoService {
 
@@ -17,7 +16,7 @@ public class DispositivoService {
     public DispositivoService(DispositivoRepository dispositivoRepository){this.dispositivoRepository=dispositivoRepository;}
 
 
-    public Dispositivo findByNomeDispositivoAndUsername(String nomeDispositivo,String username){
+    public Dispositivo findByNomeDispositivoAndUsername(String nomeDispositivo, String username){
         return this.dispositivoRepository.findByNomeDispositivoAndUsername(nomeDispositivo,username);
     }
 
@@ -27,6 +26,5 @@ public class DispositivoService {
     {
         return this.dispositivoRepository.findByUsername(username);
     }
-
 
 }

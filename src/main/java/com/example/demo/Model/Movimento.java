@@ -1,15 +1,8 @@
 package com.example.demo.Model;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -18,13 +11,12 @@ public class Movimento implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
 
     private long id;
 
     @Column
 
-    private Date data;
+    private String data;
 
     @Column
 
@@ -46,15 +38,25 @@ public class Movimento implements Serializable{
 
     private String valuta;
 
+    @Column
+
+    private int idDispositivo;
+
+    @Column
+
+    private String username;
+
     public Movimento(){}
 
-    public Movimento(Date data,String causale,double importo,String mittente,String beneficiario,String valuta){
+    public Movimento(String data, String causale, double importo, String mittente, String beneficiario, String valuta, int idDispositivo, String username){
         this.data=data;
         this.causale=causale;
         this.importo=importo;
         this.mittente=mittente;
         this.beneficiario=beneficiario;
         this.valuta=valuta;
+        this.idDispositivo=idDispositivo;
+        this.username=username;
     }
 
     public long getId() {
@@ -65,11 +67,11 @@ public class Movimento implements Serializable{
         this.id = id;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -113,6 +115,14 @@ public class Movimento implements Serializable{
         this.valuta = valuta;
     }
 
+    public int getIdDispositivo() { return idDispositivo; }
+
+    public void setIdDispositivo(int idDispositivo) { this.idDispositivo = idDispositivo; }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) { this.username = username; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -124,13 +134,15 @@ public class Movimento implements Serializable{
                 Objects.equals(causale, movimento.causale) &&
                 Objects.equals(mittente, movimento.mittente) &&
                 Objects.equals(beneficiario, movimento.beneficiario) &&
-                Objects.equals(valuta, movimento.valuta);
+                Objects.equals(valuta, movimento.valuta)&&
+                Objects.equals(idDispositivo, movimento.idDispositivo)&&
+                Objects.equals(username, movimento.username);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, data, causale, importo, mittente, beneficiario, valuta);
+        return Objects.hash(id, data, causale, importo, mittente, beneficiario, valuta, idDispositivo, username);
     }
 
     @Override
@@ -142,6 +154,8 @@ public class Movimento implements Serializable{
                 ", Mittente='" + mittente + '\'' +
                 ", Beneficiario='" + beneficiario + '\'' +
                 ", Valuta='"+ valuta+'\''+
+                ", IdDispositivo='"+ idDispositivo+'\''+
+                ", Username='"+ username+'\''+
                 '}';
     }
 }

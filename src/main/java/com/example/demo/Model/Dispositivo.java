@@ -1,7 +1,6 @@
 package com.example.demo.Model;
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,6 +19,10 @@ public class Dispositivo implements Serializable{
     @Column
 
     private String cpu;
+
+    @Column
+
+    private double frequenza;
     @Column
 
     private double ram;
@@ -36,9 +39,10 @@ public class Dispositivo implements Serializable{
     public Dispositivo(){ }
 
 
-    public Dispositivo(String nomeDispositivo,String cpu,double ram,double hardDisk, String stato,String username){
+    public Dispositivo(String nomeDispositivo, String cpu, double frequenza, double ram, double hardDisk, String stato, String username){
         this.nomeDispositivo=nomeDispositivo;
         this.cpu=cpu;
+        this.frequenza=frequenza;
         this.ram=ram;
         this.hardDisk=hardDisk;
         this.stato=stato;
@@ -68,6 +72,10 @@ public class Dispositivo implements Serializable{
     public void setCpu(String cpu) {
         this.cpu = cpu;
     }
+
+    public double getFrequenza() { return frequenza; }
+
+    public void setFrequenza(double frequenza) { this.frequenza = frequenza; }
 
     public double getRam() {
         return ram;
@@ -107,6 +115,7 @@ public class Dispositivo implements Serializable{
         if (o == null || getClass() != o.getClass()) return false;
         Dispositivo that = (Dispositivo) o;
         return idDispositivo == that.idDispositivo &&
+                Double.compare(that.frequenza, frequenza) == 0 &&
                 Double.compare(that.ram, ram) == 0 &&
                 Double.compare(that.hardDisk, hardDisk) == 0 &&
                 Objects.equals(nomeDispositivo, that.nomeDispositivo) &&
@@ -118,13 +127,14 @@ public class Dispositivo implements Serializable{
     @Override
     public int hashCode() {
 
-        return Objects.hash(idDispositivo, nomeDispositivo, cpu, ram, hardDisk, stato, username);
+        return Objects.hash(idDispositivo, nomeDispositivo, frequenza, cpu, ram, hardDisk, stato, username);
     }
 
     @Override
     public String toString() {
         return "Dispositivo{" +
                 "nomeDispositivo='" + nomeDispositivo+ '\'' +
+                ", Frequenza='" + frequenza + '\'' +
                 ", CPU='" + cpu + '\'' +
                 ", RAM='" + ram + '\'' +
                 ", HardDisk='" + hardDisk + '\'' +
