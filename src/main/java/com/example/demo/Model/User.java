@@ -38,10 +38,12 @@ public class User implements Serializable {
     private String telefono ;
     @Column
     private  String ruolo ;
+    @Column
+    private String stato;
 
     public User(){}
 
-    public User(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo) {
+    public User(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo,String stato) {
         this.username = username;
         this.password = password;
         this.nomeUser = nomeUser;
@@ -54,6 +56,7 @@ public class User implements Serializable {
         this.email=email;
         this.telefono=telefono;
         this.ruolo =ruolo;
+        this.stato=stato;
 
     }
 
@@ -71,6 +74,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getStato() {
+        return stato;
+    }
+
+    public void setStato(String stato) {
+        this.stato = stato;
     }
 
     public String getNomeUser() {
@@ -169,18 +180,19 @@ public class User implements Serializable {
                 Objects.equals(cap, user.cap) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(telefono, user.telefono) &&
-                Objects.equals(ruolo, user.ruolo);
+                Objects.equals(ruolo, user.ruolo) &&
+                Objects.equals(stato, user.stato);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(username, password, nomeUser, cognomeUser, dataDiNascita, indirizzo, citta, provincia, cap, email, telefono, ruolo);
+        return Objects.hash(username, password, nomeUser, cognomeUser, dataDiNascita, indirizzo, citta, provincia, cap, email, telefono, ruolo, stato);
     }
 
     @Override
     public String toString() {
-        return "User: " + "\n username: " + username + "\n password: " + password + "\n Nome: " + nomeUser + "\n Cognome: " + cognomeUser + "\n Data di nascita: " + dataDiNascita + "\n Indirizzo: " + indirizzo + "\n Citta: " + citta + "\n Provincia: " + provincia + "\n CAP: " + cap + "\n Email: " + email + "\n Telefono: " + telefono + "\n  Ruolo: " + ruolo;
+        return "User: " + "\n username: " + username + "\n password: " + password + "\n Nome: " + nomeUser + "\n Cognome: " + cognomeUser + "\n Data di nascita: " + dataDiNascita + "\n Indirizzo: " + indirizzo + "\n Citta: " + citta + "\n Provincia: " + provincia + "\n CAP: " + cap + "\n Email: " + email + "\n Telefono: " + telefono + "\n  Ruolo: " + ruolo+ "\n Stato: "+stato;
     }
 
 

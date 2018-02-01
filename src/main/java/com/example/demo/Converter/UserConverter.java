@@ -26,6 +26,7 @@ public class UserConverter implements Converter<User, UserDTO>{
         user.setEmail(userDTO.getEmail());
         user.setTelefono(userDTO.getTelefono());
         user.setRuolo("user");
+        user.setStato("sbloccato");
         return user;
     }
 
@@ -35,7 +36,7 @@ public class UserConverter implements Converter<User, UserDTO>{
         return new UserDTO(user.getUsername(), user.getPassword(),user.getNomeUser(),
                 user.getCognomeUser(),user.getDataDiNascita(), user.getIndirizzo(),
                 user.getCitta(), user.getProvincia(), user.getCap(),
-                user.getEmail(), user.getTelefono(), user.getRuolo());
+                user.getEmail(), user.getTelefono(), user.getRuolo(),user.getStato());
     }
 }
 

@@ -15,10 +15,11 @@ public class UserDTO {
     private String email;
     private String telefono ;
     private  String ruolo ;
+    private String stato;
 
     public UserDTO(){}
 
-    public UserDTO(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo) {
+    public UserDTO(String username, String password, String nomeUser, String cognomeUser, String dataDiNascita, String indirizzo, String citta, String provincia, String cap,String email,String telefono, String ruolo,String stato) {
         this.username = username;
         this.password = password;
         this.nomeUser = nomeUser;
@@ -31,6 +32,7 @@ public class UserDTO {
         this.email=email;
         this.telefono=telefono;
         this.ruolo =ruolo;
+        this.stato=stato;
 
     }
 
@@ -40,6 +42,14 @@ public class UserDTO {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getStato() {
+        return stato;
+    }
+
+    public void setStato(String stato) {
+        this.stato = stato;
     }
 
     public String getPassword() {
