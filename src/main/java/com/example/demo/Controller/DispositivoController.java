@@ -46,6 +46,7 @@ public class DispositivoController {
         else{
 
             Dispositivo newDispositivo=dispositivoConverter.convertToEntity(dispositivoDTO);
+            newDispositivo.setStato("Registrato");
             Dispositivo dispAgg=dispositivoService.insert(newDispositivo);
            DispositivoDTO dispAggDTO=dispositivoConverter.convertToDTO(dispAgg);
             return new GenericResponse<>(1,dispAggDTO); // dispositivo aggiunto
