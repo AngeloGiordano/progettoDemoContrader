@@ -68,4 +68,19 @@ public class DispositivoController {
         if (dispositivi.size() == 0) {return  new GenericResponse<>(1,null);}//*lista dispositivi vuota
         else{ return new GenericResponse<>(0,dispositivi);}//*lista dispositivi
     }
+
+    @RequestMapping(value="/deleteDispositivo",method= RequestMethod.GET)
+    public GenericResponse<Boolean> deleteDisp(@RequestParam("nomeDispositivo") String nomeDispositivo, @RequestParam("username") String username){
+        Dispositivo trovato=dispositivoService.findByNomeDispositivoAndUsername(nomeDispositivo,username);
+        boolean conferma=true;
+        if (trovato!=null){
+            trovato.setStato("ELIMINATO");
+            Dispositivo dispele=dispositivoService.insert(trovato);
+            return new GenericResponse<>(0,conferma); // dispositivo eliminato
+        }
+        else {
+            conferma=false;
+            return new GenericResponse<>(1,conferma); //dispositivo non eliminato
+        }
+    }
 }

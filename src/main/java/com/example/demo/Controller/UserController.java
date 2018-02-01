@@ -66,6 +66,31 @@ public class UserController {
         else return new GenericResponse<>(1, null); // non aggiorna Utente
     }
 
+    @RequestMapping(value="/bloccaUtente",method = RequestMethod.GET)
+    public GenericResponse<UserDTO> blockUtente(@RequestParam("username") String username) {
+        User userTrovato = userService.findUserByUsername(username);
+
+        if (userTrovato != null) {
+            if (userTrovato.getStato().equalsIgnoreCase("Sbloccato")) {
+
+                userTrovato.setStato("Bloccato");
+                User userAgg = userService.insert(userTrovato);
+                UserDTO userAggDTO=userConverter.convertToDTO(userAgg);
+                return new GenericResponse<>(0, userAggDTO);
+            }
+            else if(userTrovato.getStato().equalsIgnoreCase("Bloccato")){
+
+                userTrovato.setStato("Sbloccato");
+                User userAgg = userService.insert(userTrovato);
+                UserDTO userAggDTO=userConverter.convertToDTO(userAgg);
+                return new GenericResponse<>(1, userAggDTO);
+            }
+        }
+        else
+            return new GenericResponse<>(2, null);
+        return null;
+    }
+
 
 
 
